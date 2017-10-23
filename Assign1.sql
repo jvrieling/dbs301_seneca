@@ -85,5 +85,60 @@ or job_id like '%_VP')
 order by salary;
 
 --Question 10
+select last_name, job_id, salary, country_id
+from employees e join departments d
+on e.department_id = d.department_id
+join locations l
+on d.location_id = l.location_id
+where country_id != 'US' and
+(job_id not like '%VP' or job_id not like '%PRES')
+and salary > (select min(salary)
+from employees e join departments d
+on e.department_id = d.department_id
+join locations l
+on d.location_id = l.location_id
+where country_id = 'CA') 
+and salary > (select min(salary)
+from employees e join departments d
+on e.department_id = d.department_id
+join locations l
+on d.location_id = l.location_id
+where country_id = 'UK')
+order by job_id;
 
+--Another Answer for 10
+select e.last_name, e.job_id, e.salary
+from employees e join departments d
+on d.department_id = e.department_id
+join locations l on d.location_id = l.location_id
+where l.country_id != 'US'
+and (job_id not like '%VP'
+and job_id not like '%PRES')
+--SUBQUERY for minimum salary in UK 
+and salary < (select min(salary) 
+from employees e join departments d
+on d.department_id = e.department_id
+join locations l on d.location_id = l.location_id
+where l.country_id = 'UK')
+--------------------------------
+--SUBQUERY for min salary in CA
+and salary < (Select min(salary)
+from employees e join departments d
+on d.department_id = e.department_id
+join locations l on d.location_id = l.location_id
+where l.country_id = 'CA')
+----------------------------
+order by job_id;
+
+
+--Question 11
+select last_name, salary, job_id
+from employees
+where (upper(job_id) like 'IT_%'
+or upper(job_id) like 'AC_%'
+or upper(job_id) like 'MK_%')
+and salary > (select min(salary) 
+from employees
+where department_id = 50)
+order by last_name;
 
