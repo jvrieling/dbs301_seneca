@@ -1,3 +1,10 @@
+--------------------------------------
+--NOTICE:
+--  I don't care if you use my work.
+--  BUT: Be warned, doing it yourself is REALLY good practice. I highly reccommend it as
+--  a method of studying for the test.
+--------------------------------------
+
 
 --QUESTION 1
 
