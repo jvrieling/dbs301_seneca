@@ -3,6 +3,7 @@
 --  I don't care if you use my work.
 --  BUT: Be warned, doing it yourself is REALLY good practice. I highly reccommend it as
 --  a method of studying for the test.
+--  Use this only as a last resort attempt to submit. Understand the material or you will regret it.
 --------------------------------------
 
 
@@ -103,3 +104,35 @@ FROM section s, employees e, warehouse w, division d
 WHERE e.employee_id = s.mgr_id
 AND s.warehouse_id = w.warehouse_id
 );
+
+--QUESTION 10
+SELECT * FROM whssec_man_vu;
+
+
+--QUESTION 11
+ALTER VIEW <viewname>
+
+--The following is not on test 2, but you must do self study on the topic
+
+--QUESTION 12
+SELECT city
+FROM locations
+MINUS
+SELECT city
+FROM cities;
+
+--13 All the rows in A and all the rows in B with no duplicates is the set operator called 
+--[Symbol]  
+UNION
+
+--14 All the rows in A and all the rows in B with duplicates [Symbol] 
+ UNION ALL
+
+--15 The rows in common to BOTH A and B tables [Symbol] 
+INTERSECT 
+
+--16 Rows that are in A but not in B would use the word [Symbol] 
+MINUS
+
+
+
