@@ -1,0 +1,5 @@
+--QUESTION 1
+CREATE TABLE CITIES11 AS(
+SELECT * FROM locations
+WHERE location_id < 2000
+);
